@@ -101,6 +101,7 @@ let timerId = setInterval(function() {
 
 // STEP 13: Create a variable to track whether the timer is
 //          currently running (let running = true;)
+let running = true;
 
 // STEP 14: Add a click event listener to the button (ID "myBtn").
 //          Inside the listener:
@@ -113,3 +114,21 @@ let timerId = setInterval(function() {
 //             - Start a new setInterval (same as STEP 12)
 //             - Change button innerHTML to "Stop"
 //             - Set running to true
+document.getElementById("myBtn").addEventListener("click", function() {
+    if (running) {
+        clearInterval(timerId);
+        this.innerHTML = "Start";
+        running = false;
+    } else {
+        startTime = new Date().getTime();
+        
+        timerId = setInterval(function() {
+            let currentTime = new Date().getTime();
+            let elapsedSeconds = (currentTime - startTime) / 1000;
+            document.getElementById("myTimer").innerHTML = elapsedSeconds.toFixed(3);
+        }, 10);
+        
+        this.innerHTML = "Stop";
+        running = true;
+    }
+});
