@@ -44,17 +44,24 @@ document.getElementById("warmUpDate").innerHTML = dayName;
 // Example: "4/2/2025" (no leading zeros)
 
 // STEP 6: Create a new Date object (or reuse the one from above).
+// You can reuse 'now' if continuing the script, or initialize a new one:
+let currentDate = new Date();
 
 // STEP 7: Get the month using .getMonth()
 //         IMPORTANT: .getMonth() returns 0–11 (January = 0)
 //         so you must add 1 to get the correct month number.
+let month = currentDate.getMonth() + 1;
 
 // STEP 8: Get the day of the month using .getDate()
+let date = currentDate.getDate();
 
 // STEP 9: Get the year using .getFullYear()
+let year = currentDate.getFullYear();
 
 // STEP 10: Build the date string: month + "/" + day + "/" + year
 //          Display it in the element with ID "myDate"
+let dateString = month + "/" + date + "/" + year;
+document.getElementById("myDate").innerHTML = dateString;
 
 
 // ============================================
