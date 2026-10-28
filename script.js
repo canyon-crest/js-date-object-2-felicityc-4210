@@ -73,6 +73,7 @@ document.getElementById("myDate").innerHTML = dateString;
 
 // STEP 11: Record the start time using new Date().getTime()
 //          This gives you the current time in milliseconds.
+let startTime = new Date().getTime();
 
 // STEP 12: Create a variable to hold the timer ID (for stopping later).
 //          Use setInterval() with a delay of 10 milliseconds.
@@ -81,6 +82,11 @@ document.getElementById("myDate").innerHTML = dateString;
 //          b) Calculate elapsed seconds: (currentTime - startTime) / 1000
 //          c) Display the elapsed time using .toFixed(3)
 //             in the element with ID "myTimer"
+let timerId = setInterval(function() {
+    let currentTime = new Date().getTime();
+    let elapsedSeconds = (currentTime - startTime) / 1000;
+    document.getElementById("myTimer").innerHTML = elapsedSeconds.toFixed(3);
+}, 10);
 
 
 // ============================================
